@@ -12,6 +12,7 @@ export type InitialAppStateType = {
     "rates": { [key: string]: number }
     changeResult: number
     changeValue: number
+    currencyList: Array<{ value: string; label: string; }>
 }
 
 
@@ -26,7 +27,11 @@ const initialState = {
     date: "2022-05-12",
     rates: {},
     changeResult: 0,
-    changeValue: 0
+    changeValue: 0,
+    currencyList: [
+        {value: "USD", label: "Долар"},
+        {value: "RUB", label: "Рубль"},
+        {value: "BYN", label: "Беларусский рубль"}]
 }
 
 export type AddDateACType = ReturnType<typeof addDateAC>
