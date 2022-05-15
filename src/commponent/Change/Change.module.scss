@@ -1,11 +1,10 @@
 .wrapper {
-  width: 500px;
+  max-width: 500px;
   margin: 20px auto;
 
   &_change {
     display: flex;
     justify-content: space-around;
-
     Select {
       margin-bottom: 10px;
     }
@@ -24,6 +23,20 @@
       Select {
         color: blue;
       }
+    }
+  }
+}
+
+@media (max-width: 510px) {
+  .wrapper {
+
+    &_change {
+      display: flex;
+      justify-content: space-around;
+      flex-direction: column;
+    &__ico {
+      display: none;
+    }
     }
   }
 }

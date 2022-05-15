@@ -2,7 +2,6 @@
   margin: 0 auto;
   height: 25px;
   width: 500px;
-  background-color: #61dafb;
   display: flex;
   justify-content: space-around;
 
@@ -13,13 +12,21 @@
   a {
     width: 100%;
     color: white;
+    background-color: #61dafb;
     text-decoration: none;
-
 
     &:hover {
       background-color: red;
       color: #282c34;
     }
+  }
+}
 
+@media (max-width: 510px) {
+  .wrapper {
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
   }
 }

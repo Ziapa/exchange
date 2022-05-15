@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import {Change} from "./commponent/Change/Change";
-import {Link, Route, Routes} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import {NavBar} from "./commponent/NavBar/NavBar";
 
 
