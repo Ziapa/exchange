@@ -15,7 +15,7 @@ type ConvertType = {
 const instance = axios.create({
     baseURL: 'https://api.apilayer.com/exchangerates_data/',
     headers: {
-        "apikey": "TexaItvVSagde33NM00Fnn38v8AFPDim",
+        "apikey": "no4OqfS4zLKnKXJsluAV49xp1TPSK42d",
     },
 })
 

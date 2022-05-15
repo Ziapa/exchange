@@ -1,4 +1,5 @@
 import React, {ChangeEvent} from "react";
+import s from "./Select.module.scss"
 
 type SelectPropsType = {
     value: string
@@ -11,7 +12,7 @@ type SelectPropsType = {
 export const Select = (props: SelectPropsType) => {
     return (
         <div>
-            <select id={props.id} value={props.value} onChange={props.onChangeHandler}>
+            <select className={s.select} id={props.id} value={props.value} onChange={props.onChangeHandler}>
                 {props.currencyList.map(el => <option value={el.value}> {el.label} </option>)}
             </select>
         </div>

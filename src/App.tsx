@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import {Change} from "./commponent/Change/Change";
 import {Link, Route, Routes} from "react-router-dom";
+import {NavBar} from "./commponent/NavBar/NavBar";
 
 
 function App() {
@@ -10,10 +11,13 @@ function App() {
     return (
         <div className="App">
 
-            <Link to={"ExchangeByValue"}>{"Обмен"}</Link>
-            <Link to={"ExchangeRates"}>{"Курс валют"}</Link>
+            <NavBar/>
 
             <Routes>
+
+                <Route path="/"
+                       element={<Change collapsedInput={false}/>}/>
+
                 <Route path="ExchangeByValue"
                        element={<Change collapsedInput={false}/>}/>
 
