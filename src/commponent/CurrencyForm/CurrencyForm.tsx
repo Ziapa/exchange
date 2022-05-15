@@ -4,14 +4,17 @@ import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType, TypedDispatch} from "../../redux/store";
 import {changeResultTC, changeValueAC, InitialAppStateType} from "../../redux/app-reducer";
 import {Input} from "../GeneralComponents/Input/Input";
-import s from "./Change.module.scss"
-import {IoArrowForwardSharp} from "react-icons/io5";
+import s from "./CurrencyForm.module.scss"
+import {IoArrowDownSharp, IoArrowForwardSharp} from "react-icons/io5";
 
 type ChangePropsType = {
     collapsedInput: boolean
 }
 
-export const Change = (props: ChangePropsType) => {
+export const CurrencyForm = (props: ChangePropsType) => {
+
+    const [selectTo, setSelectTo] = useState<string>("RUB");
+    const [selectFrom, setSelectFrom] = useState<string>("USD");
 
     const dispatch = useDispatch<TypedDispatch>()
     const data = useSelector<AppRootStateType, InitialAppStateType>(state => state.app)
@@ -30,9 +33,6 @@ export const Change = (props: ChangePropsType) => {
         }
     }
 
-    const [selectTo, setSelectTo] = useState<string>("RUB");
-    const [selectFrom, setSelectFrom] = useState<string>("USD");
-
     useEffect(() => {
          dispatch(changeResultTC(selectTo, selectFrom, 1))
     }, [])
@@ -48,8 +48,12 @@ export const Change = (props: ChangePropsType) => {
                     {props.collapsedInput || <Input changeValue={data.changeValue} onChangeHandler={onChangeHandler}/>}
                 </div>
 
-                <div className={s.wrapper_change__ico}>
+                <div className={s.wrapper_change__icoRight}>
                     <IoArrowForwardSharp/>
+                </div>
+
+                <div className={s.wrapper_change__icoDown}>
+                    <IoArrowDownSharp/>
                 </div>
 
                 <div className={s.wrapper_change__from}>
@@ -58,7 +62,7 @@ export const Change = (props: ChangePropsType) => {
                     {props.collapsedInput || <div>Результат обмена: {data.changeResult}</div>}
                 </div>
             </div>
-            {!props.collapsedInput || <div>Курс 1 {selectTo} к 1 {selectFrom}: {data.changeResult}</div>}
+            {!props.collapsedInput || <div className={s.wrapper_result}>Курс 1 {selectTo} к 1 {selectFrom}: {data.changeResult}</div>}
 
         </div>
     )

@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {Change} from "./commponent/Change/Change";
+import {CurrencyForm} from "./commponent/CurrencyForm/CurrencyForm";
 import {Route, Routes} from "react-router-dom";
 import {NavBar} from "./commponent/NavBar/NavBar";
 
@@ -16,13 +16,13 @@ function App() {
             <Routes>
 
                 <Route path="/"
-                       element={<Change collapsedInput={false}/>}/>
+                       element={<CurrencyForm collapsedInput={false}/>}/>
 
                 <Route path="ExchangeByValue"
-                       element={<Change collapsedInput={false}/>}/>
+                       element={<CurrencyForm collapsedInput={false}/>}/>
 
                 <Route path="ExchangeRates"
-                       element={<Change collapsedInput={true}/>}/>
+                       element={<CurrencyForm collapsedInput={true}/>}/>
             </Routes>
 
         </div>

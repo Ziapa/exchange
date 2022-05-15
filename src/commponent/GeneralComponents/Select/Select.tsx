@@ -9,12 +9,10 @@ type SelectPropsType = {
 }
 
 
-export const Select = (props: SelectPropsType) => {
-    return (
-        <div>
-            <select className={s.select} id={props.id} value={props.value} onChange={props.onChangeHandler}>
-                {props.currencyList.map(el => <option value={el.value}> {el.label} </option>)}
-            </select>
-        </div>
-    )
-}
+export const Select = ({id, value,onChangeHandler, currencyList }: SelectPropsType) => (
+    <div>
+        <select className={s.select} id={id} value={value} onChange={onChangeHandler}>
+            {currencyList.map(({value, label}) => <option value={value}> {label} </option>)}
+        </select>
+    </div>
+)

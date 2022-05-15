@@ -1,7 +1,9 @@
 .wrapper {
   max-width: 500px;
   margin: 20px auto;
-
+&_result {
+  margin-top: 5px;
+}
   &_change {
     display: flex;
     justify-content: space-around;
@@ -15,15 +17,19 @@
       }
     }
 
-    &__ico {
-      margin: auto;
-    }
-
     &__from {
       Select {
         color: blue;
       }
     }
+    &__icoRight {
+      margin: auto;
+    }
+    &__icoDown {
+      display: none;
+      padding: 5px;
+    }
+
   }
 }
 
@@ -34,9 +40,19 @@
       display: flex;
       justify-content: space-around;
       flex-direction: column;
-    &__ico {
+      Select {
+        margin-bottom: 0;
+      }
+      Input {
+        margin-top: 5px;
+      }
+    &__icoRight {
       display: none;
     }
+      &__icoDown {
+        margin: 0 auto;
+        display: block;
+      }
     }
   }
 }
