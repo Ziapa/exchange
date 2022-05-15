@@ -9,6 +9,7 @@ export type InitialAppStateType = {
     changeResult: number
     changeValue: number
     currencyList: Array<{ value: string; label: string; }>
+    NavLinks: Array<{to: string, name: string}>
 }
 
 
@@ -20,9 +21,14 @@ const initialState = {
     date: "2022-05-12",
     changeResult: 0,
     changeValue: 1,
+    NavLinks: [
+        {to: "ExchangeByValue", name: "Обмен"},
+        {to: "ExchangeRates", name: "Курс валют"},
+    ],
     currencyList: [
         {value: "USD", label: "Долар"},
         {value: "RUB", label: "Рубль"},
+        {value: "EUR", label: "Евро"},
         {value: "BYN", label: "Беларусский рубль"}]
 }
 
