@@ -1,18 +1,27 @@
 import React from "react";
-import s from "./NavBar.module.scss"
-import {NavLink} from "react-router-dom";
-import {useSelector} from "react-redux";
-import {AppRootStateType} from "../../redux/store";
-import {InitialAppStateType} from "../../redux/app-reducer";
 
-export const NavBar = () => {
+import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 
-    const data = useSelector<AppRootStateType, InitialAppStateType>(state => state.app)
+import { InitialAppStateType } from "../../redux/app-reducer";
+import { AppRootStateType } from "../../redux/store";
 
-    return (
-        <div className={s.wrapper}>
-            {data.NavLinks.map(({to, name}) => <NavLink className={({isActive}) => isActive ? s.active : ""}
-                                                        to={to}>{name}</NavLink>)}
-        </div>
-    )
-}
+import s from "./NavBar.module.scss";
+
+export const NavBar: React.FC<any> = () => {
+  const data = useSelector<AppRootStateType, InitialAppStateType>(state => state.app);
+
+  return (
+    <div className={s.wrapper}>
+      {data.NavLinks.map(({ to, name }) => (
+        <NavLink
+          key={name}
+          className={({ isActive }) => (isActive ? s.active : "")}
+          to={to}
+        >
+          {name}
+        </NavLink>
+      ))}
+    </div>
+  );
+};
