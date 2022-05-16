@@ -1,8 +1,7 @@
 import React from 'react';
 import './App.css';
-import {CurrencyForm} from "./commponent/CurrencyForm/CurrencyForm";
 import {Route, Routes} from "react-router-dom";
-import {NavBar} from "./commponent/NavBar/NavBar";
+import {NavBar,CurrencyForm} from "./commponent";
 
 
 function App() {

@@ -1,9 +1,9 @@
 import React, {ChangeEvent, useEffect, useState} from "react";
-import {Select} from "../GeneralComponents/Select/Select";
+import {Select} from "../";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType, TypedDispatch} from "../../redux/store";
 import {changeResultTC, changeValueAC, InitialAppStateType} from "../../redux/app-reducer";
-import {Input} from "../GeneralComponents/Input/Input";
+import {Input} from "../";
 import s from "./CurrencyForm.module.scss"
 import {IoArrowDownSharp, IoArrowForwardSharp} from "react-icons/io5";
 
@@ -26,15 +26,15 @@ export const CurrencyForm = (props: ChangePropsType) => {
     const onChangeHandlerSelect = (e: ChangeEvent<HTMLSelectElement>) => {
         if (e.currentTarget.id === "from") {
             setSelectFrom(e.currentTarget.value)
-            dispatch(changeResultTC(selectTo,e.currentTarget.value, props.collapsedInput ? 1 : data.changeValue))
+            dispatch(changeResultTC(selectTo, e.currentTarget.value, props.collapsedInput ? 1 : data.changeValue))
         } else if (e.currentTarget.id === "to") {
             setSelectTo(e.currentTarget.value)
-            dispatch(changeResultTC(e.currentTarget.value, selectFrom,  props.collapsedInput ? 1 : data.changeValue))
+            dispatch(changeResultTC(e.currentTarget.value, selectFrom, props.collapsedInput ? 1 : data.changeValue))
         }
     }
 
     useEffect(() => {
-         dispatch(changeResultTC(selectTo, selectFrom, 1))
+        dispatch(changeResultTC(selectTo, selectFrom, 1))
     }, [])
 
     return (
@@ -62,7 +62,8 @@ export const CurrencyForm = (props: ChangePropsType) => {
                     {props.collapsedInput || <div>Результат обмена: {data.changeResult}</div>}
                 </div>
             </div>
-            {!props.collapsedInput || <div className={s.wrapper_result}>Курс 1 {selectTo} к 1 {selectFrom}: {data.changeResult}</div>}
+            {!props.collapsedInput ||
+                <div className={s.wrapper_result}>Курс 1 {selectTo} к 1 {selectFrom}: {data.changeResult}</div>}
 
         </div>
     )
